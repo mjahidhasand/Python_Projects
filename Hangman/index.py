@@ -128,8 +128,7 @@ def main():
     global word, display, guessed, count, play
 
     limit = 9
-    print(
-        f'The Hangman word: {display}\t\tWord Length: {length}\t\tRemaining: {limit - count}\n\n')
+    print(f'The Hangman word: {display}\t\tWord Length: {length}\t\tRemaining: {limit - count}\n\n')
 
     guess = input(f'Guess the letter: ').strip()
     print('-----------------------------------------------------------------------------------')
@@ -142,7 +141,7 @@ def main():
 
     elif guess in word:
         guessed.append(guess)
-        for index in range(len(word)):
+        for index in range(length):
             if guess == word[index]:
                 display = display[:index] + guess + display[index+1:]
 
@@ -179,6 +178,7 @@ def main():
             play_again()
 
     if word == display:
+        print(f'The Hangman Word: {display}')
         print('Congratulation! You have guessed the word correctly!')
         play_again()
 
